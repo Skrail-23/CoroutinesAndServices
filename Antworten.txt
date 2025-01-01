@@ -1,0 +1,18 @@
+A) Vorteile von Coroutinen in der Android-Entwicklung
+Effizient: Blockieren keine Threads, optimieren Ressourcen.
+Benutzerfreundlich: Lesbarer, sequenzieller Code.
+Flüssige UI: Netzwerkanfragen laufen im Hintergrund (z. B. mit Dispatchers.IO), UI bleibt responsiv.
+Lifecycle-Management: Coroutinen in viewModelScope stoppen automatisch, wenn das ViewModel zerstört wird.
+Beispiel: fetchForecastData holt Wetterdaten asynchron, ohne die UI zu blockieren.
+
+B) Warum Dispatchers.IO?
+Optimiert für I/O-intensive Aufgaben wie Netzwerkanfragen.
+Verhindert UI-Blockaden, da die Haupt-Thread-Interaktion nicht beeinträchtigt wird.
+
+C) Zwei Anwendungsfälle für Services
+Daten-Synchronisierung: Z. B. Cloud-Backups, die auch nach App-Schließung weiterlaufen.
+Echtzeit-Standortverfolgung: Foreground Service in Navigations-Apps hält den Service aktiv und informiert den Nutzer über Benachrichtigungen.
+
+D) Vorteile von Services und Coroutinen
+Asynchron: Coroutinen erlauben ressourcenschonende Hintergrundaufgaben im Service.
+Beispiel: PopupService verwendet initializeTimerFromSettings mit Coroutinen, um Timer-Optionen aus dem DataStore asynchron zu laden, während der Service läuft.
